@@ -48,6 +48,10 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine(UnpauseGame());
     }
+    private void OnRestartGame()
+    {
+        
+    }
     private IEnumerator UnpauseGame()
     {
         yield return new WaitForSecondsRealtime(0.5f);

@@ -17,5 +17,11 @@ public class SettingsController : MonoBehaviour
             SettingsChanged();
         }
     }
+    public static string DeviceID { get; private set; }
+
     private static float _soundVolume;
+    private void Start()
+    {
+        DeviceID = SystemInfo.deviceUniqueIdentifier;
+    }
 }

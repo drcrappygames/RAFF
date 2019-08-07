@@ -34,5 +34,6 @@ public enum PanelType
 {
     Main,
     Settings,
-    Shop
+    Shop,
+    MessageBox
 }

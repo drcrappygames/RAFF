@@ -1,6 +1,6 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -13,12 +13,17 @@ public class MainMenuController : MonoBehaviour
 
     private Vector2 _directionLeft = new Vector2(-1, 1);
     private Vector2 _directionRight = new Vector2(1, 1);
-    private void Start()
+
+    private void Awake()
     {
         Instance = this;
+    }
+    private void Start()
+    {
         _settingsButton.onClick.AddListener(OnSettingsClick);
         _shopButton.onClick.AddListener(OnShopClick);
         LostPanelController.ExitToMainMenu += OnExitToMainMenu;
+        LostPanelController.Retry += OnRetry;
         foreach (Button b in _backButtons)
             b.onClick.AddListener(OnBackClick);
     }
@@ -44,11 +49,29 @@ public class MainMenuController : MonoBehaviour
     private void OnExitToMainMenu()
     {
         _mainMenuView.PanelSlideInVertical(PanelType.Main);
-        UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync(1);
+        Scene temp;
+        temp = SceneManager.GetSceneByName("Temp");
+        if (!temp.IsValid())
+            temp = SceneManager.CreateScene("Temp");
+
+        SceneManager.SetActiveScene(temp);
+        SceneManager.UnloadSceneAsync("GameScene");
+    }
+    private void OnRetry()
+    {
+        SceneManager.LoadSceneAsync("GameScene");
     }
     public void OnStartClick()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1, UnityEngine.SceneManagement.LoadSceneMode.Additive);
         _mainMenuView.PanelSlideOutVertical(PanelType.Main, -1);
+    }
+    public void OnShowMessage()
+    {
+        _mainMenuView.PanelSlideInVertical(PanelType.MessageBox);
+    }
+    public void OnHideMessage()
+    {
+        _mainMenuView.PanelSlideOutVertical(PanelType.MessageBox, -1);
     }
 }

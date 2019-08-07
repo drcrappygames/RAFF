@@ -14,9 +14,12 @@ public class PlayerInputController : MonoBehaviour
     private bool _waitingForStart = true;
     private bool _blockControls = false;
 
-    private void Start()
+    private void Awake()
     {
         Instance = this;
+    }
+    private void Start()
+    {
         _camera = Camera.main;
         _forceCalculator = GetComponent<ForceCalculator>();
         _playerMotor = GetComponent<PlayerMotor>();
@@ -29,7 +32,18 @@ public class PlayerInputController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RepellingMove();
+            if (_blockControls)
+                return;
+
+            if (_waitingForStart)
+            {
+                _waitingForStart = false;
+                GameController.Instance.StartGameplay();
+            }
+            _inputPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
+            _playerMotor.ShootForce = _forceCalculator.GenerateForce();
+
+            AttractingMove();
         }
     }
     private void OnDisable()
@@ -49,24 +63,11 @@ public class PlayerInputController : MonoBehaviour
 
     private void RepellingMove()
     {
-        if (_blockControls)
-            return;
-
-        if (_waitingForStart)
-        {
-            _waitingForStart = false;
-            GameController.Instance.StartGameplay();
-        }
-
-        _inputPoint = _camera.ScreenToWorldPoint(Input.mousePosition);
-        _playerMotor.ShootForce = _forceCalculator.Force;
         _playerMotor.ShootPlayerFromPosition(_inputPoint);
-        _forceCalculator.RecalculateForce();
-        _effectDisplayer.DisplayNextForce(_forceCalculator.Force);
-        PointsCounter.Instance.AddPoints(1);
+        PointsController.Instance.AddPoints(1);
     }
     private void AttractingMove()
     {
-
+        _playerMotor.MoveTowardsPosition(_inputPoint);
     }
 }

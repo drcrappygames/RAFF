@@ -23,6 +23,12 @@ public class PlayerMotor : MonoBehaviour
         Vector2 direction = _player.position - position;
         _player.AddForce(direction.normalized * ShootForce);
     }
+    public void MoveTowardsPosition(Vector2 position)
+    {
+        Vector3 direction = _player.position - position;
+        _player.velocity = Vector2.zero;
+        _player.AddForce(-direction.normalized * ShootForce);
+    }
 
     private void OnPlayerFailed()
     {

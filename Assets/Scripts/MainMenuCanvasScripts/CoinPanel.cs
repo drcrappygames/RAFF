@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class CoinPanel : MonoBehaviour
 {
+    [SerializeField] private TMPro.TextMeshProUGUI _gemsBalanceText;
     [SerializeField] private TMPro.TextMeshProUGUI _coinBalanceText;
 
     private void Awake()
     {
-        WalletController.BalanceChanged += OnBalanceChanged;
+        WalletController.CoinsBalanceChanged += OnCoinsBalanceChanged;
+        WalletController.GemsBalanceChanged += OnGemsBalanceChanged;
+
     }
     private void OnDisable()
     {
-        WalletController.BalanceChanged -= OnBalanceChanged;
+        WalletController.CoinsBalanceChanged -= OnCoinsBalanceChanged;
+        WalletController.GemsBalanceChanged -= OnGemsBalanceChanged;
     }
-    private void OnBalanceChanged(int ammount)
+    private void OnCoinsBalanceChanged(int ammount)
     {
         _coinBalanceText.text = ammount.ToString();
+    }
+    private void OnGemsBalanceChanged(int ammount)
+    {
+        _gemsBalanceText.text = ammount.ToString();
     }
 }

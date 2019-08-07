@@ -14,6 +14,7 @@ public class SaveLoadController : MonoBehaviour
     private void Start()
     {
         LoadData();
+        StartCoroutine(SyncData());
     }
 
     private static void LoadData()
@@ -32,5 +33,11 @@ public class SaveLoadController : MonoBehaviour
         PlayerPrefs.SetInt(PLAYER_SELECTED_SKIN, SkinController.SelectedSkin[(int)SkinSelectionType.Player]);
         PlayerPrefs.SetInt(SPIKES_SELECTED_COLOR, SkinController.SelectedColor[(int)SkinSelectionType.Spikes]);
         PlayerPrefs.SetInt(SPIKES_SELECTED_SKIN, SkinController.SelectedSkin[(int)SkinSelectionType.Spikes]);
+    }
+
+    private IEnumerator SyncData()
+    {
+
+        yield return null;
     }
 }

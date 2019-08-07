@@ -26,4 +26,16 @@ public static class Extensions
     {
         return new Color(1f - color.r, 1f - color.g, 1f - color.b, color.a);
     }
+
+    public static string ToMD5(this string original)
+    {
+        System.Security.Cryptography.MD5 md5hash = System.Security.Cryptography.MD5.Create();
+        byte[] data = md5hash.ComputeHash(System.Text.Encoding.UTF8.GetBytes(original));
+        System.Text.StringBuilder strBuilder = new System.Text.StringBuilder();
+        foreach (byte b in data)
+        {
+            strBuilder.Append(b.ToString("x2"));
+        }
+        return strBuilder.ToString();
+    }
 }

@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ApplicationController
+    - CoinPanel
     - CollisionController
     - EffectDisplayer
     - ForceCalculator
@@ -12,10 +13,13 @@ ScriptsOnlyBuild:
     - MainMenuController
     - MainMenuView
     - MainPanelController
+    - MessageBoxPanelController
+    - OnlineConnectionController
     - Player
     - PlayerInputController
     - PlayerMotor
-    - PointsCounter
+    - Point
+    - PointsController
     - SaveLoadController
     - SettingsController
     - ShopPanelController
@@ -82,43 +86,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9680}
     - Class: 114
-      Script: {instanceID: 9890}
+      Script: {instanceID: 9892}
     - Class: 114
-      Script: {instanceID: 10142}
+      Script: {instanceID: 10144}
     - Class: 114
-      Script: {instanceID: 10196}
-    - Class: 114
-      Script: {instanceID: 10244}
+      Script: {instanceID: 10198}
     - Class: 114
       Script: {instanceID: 10246}
     - Class: 114
-      Script: {instanceID: 10296}
+      Script: {instanceID: 10248}
     - Class: 114
-      Script: {instanceID: 10684}
+      Script: {instanceID: 10298}
     - Class: 114
-      Script: {instanceID: 10770}
+      Script: {instanceID: 10410}
     - Class: 114
-      Script: {instanceID: 10772}
+      Script: {instanceID: 10694}
     - Class: 114
-      Script: {instanceID: 10916}
+      Script: {instanceID: 10706}
     - Class: 114
-      Script: {instanceID: 11108}
+      Script: {instanceID: 10786}
     - Class: 114
-      Script: {instanceID: 11174}
+      Script: {instanceID: 10788}
     - Class: 114
-      Script: {instanceID: 11274}
+      Script: {instanceID: 10932}
     - Class: 114
-      Script: {instanceID: 11302}
+      Script: {instanceID: 11126}
     - Class: 114
-      Script: {instanceID: 11486}
+      Script: {instanceID: 11192}
     - Class: 114
-      Script: {instanceID: 11552}
+      Script: {instanceID: 11292}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11320}
     - Class: 114
-      Script: {instanceID: 11626}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 66150}
+      Script: {instanceID: 11572}
+    - Class: 114
+      Script: {instanceID: 11622}
+    - Class: 114
+      Script: {instanceID: 11646}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -157,53 +163,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9680}
     - Class: 114
-      Script: {instanceID: 9890}
+      Script: {instanceID: 9812}
     - Class: 114
-      Script: {instanceID: 10196}
+      Script: {instanceID: 9892}
     - Class: 114
-      Script: {instanceID: 10296}
+      Script: {instanceID: 10198}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10298}
     - Class: 114
-      Script: {instanceID: 10472}
+      Script: {instanceID: 10318}
     - Class: 114
-      Script: {instanceID: 10556}
+      Script: {instanceID: 10320}
     - Class: 114
-      Script: {instanceID: 10558}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 10586}
+      Script: {instanceID: 10528}
     - Class: 114
-      Script: {instanceID: 10600}
+      Script: {instanceID: 10564}
     - Class: 114
-      Script: {instanceID: 10674}
+      Script: {instanceID: 10566}
+    - Class: 114
+      Script: {instanceID: 10594}
+    - Class: 114
+      Script: {instanceID: 10608}
+    - Class: 114
+      Script: {instanceID: 10626}
     - Class: 114
       Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10872}
+      Script: {instanceID: 10694}
     - Class: 114
-      Script: {instanceID: 10912}
+      Script: {instanceID: 10726}
     - Class: 114
-      Script: {instanceID: 10916}
+      Script: {instanceID: 10746}
     - Class: 114
-      Script: {instanceID: 10930}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 11108}
+      Script: {instanceID: 10928}
     - Class: 114
-      Script: {instanceID: 11174}
+      Script: {instanceID: 10932}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 10946}
     - Class: 114
-      Script: {instanceID: 11552}
+      Script: {instanceID: 11044}
     - Class: 114
-      Script: {instanceID: 11588}
+      Script: {instanceID: 11126}
     - Class: 114
-      Script: {instanceID: 15414}
+      Script: {instanceID: 11192}
     - Class: 114
-      Script: {instanceID: 15422}
+      Script: {instanceID: 11362}
     - Class: 114
-      Script: {instanceID: 27574}
+      Script: {instanceID: 11572}
     - Class: 114
-      Script: {instanceID: 56890}
+      Script: {instanceID: 11608}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -218,10 +230,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 225
+      Script: {instanceID: 0}
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 00c5e5f05f0d8b548599346135bced42
+      Hash: 94ba2cb941d5c3ef2f45e04a2107df64
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ForceCalculator
@@ -255,6 +269,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: e6b069c3827b63526550937277bd305e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SkinController
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -413,6 +433,12 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 644c0b7c2ceed63d38149721e70a6269
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MessageBoxPanelController
+  - hash:
+      serializedVersion: 2
       Hash: b8a5e8091ab0b8861d2add371082c5e0
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -429,6 +455,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 9697b1f58f0ab22d3350c14ecdd4fcb1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PointsController
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -449,13 +481,19 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 16cdd5a890428af52ff099b1834ff6c0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopPanelController
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 5f476813c6865b3d172f22d6924896c6
+      Hash: fe3cc9fac766fef14bc5737aa6987ca4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenuView
@@ -491,13 +529,19 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveLoadController
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: e5dd61d5334fe6204c7ae51f320c09b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ApplicationController
@@ -509,10 +553,28 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Point
+  - hash:
+      serializedVersion: 2
       Hash: 92da9881aed190e8bb74661bcd74aa2c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SettingsController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OnlineConnectionController
   - hash:
       serializedVersion: 2
       Hash: 0b16c555271b211f0fa503941997f28a
@@ -521,7 +583,7 @@ ScriptsOnlyBuild:
     className: EffectDisplayer
   - hash:
       serializedVersion: 2
-      Hash: c7a878cc5593a8d347f918d1057a9506
+      Hash: ab782e3949af1d85eedc68761fd04cf4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LostPanelController
@@ -587,6 +649,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: a5cf1e523fed61adbbefd2cf9db03806
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinPanel
+  - hash:
+      serializedVersion: 2
       Hash: ee0cef6caaac8ae485bfa82f000f0f7b
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -611,7 +679,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: d3a2602c8c07ee0e18c64ea02e6dfbc3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -669,6 +737,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: ae7d53f3e5a56e039450f0d5cbc734de
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SettingsPanelController
   - hash:
       serializedVersion: 2
       Hash: 3f52d34ea17dfc771004b80f5d492445
@@ -741,42 +815,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMotor
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SettingsController
-  - hash:
-      serializedVersion: 2
-      Hash: e6b069c3827b63526550937277bd305e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SkinController
-  - hash:
-      serializedVersion: 2
-      Hash: ae7d53f3e5a56e039450f0d5cbc734de
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SettingsPanelController
-  - hash:
-      serializedVersion: 2
-      Hash: 16cdd5a890428af52ff099b1834ff6c0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShopPanelController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SaveLoadController
-  - hash:
-      serializedVersion: 2
-      Hash: 362b1967ef5fbd83e2370aacd3cb2eee
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PointsCounter
   platform: 13
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

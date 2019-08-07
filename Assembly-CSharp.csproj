@@ -80,12 +80,15 @@
     <Compile Include="Assets\Scripts\MainMenuCanvasScripts\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\MainMenuCanvasScripts\MainMenuView.cs" />
     <Compile Include="Assets\Scripts\MainMenuCanvasScripts\MainPanelController.cs" />
+    <Compile Include="Assets\Scripts\MainMenuCanvasScripts\MessageBoxPanelController.cs" />
     <Compile Include="Assets\Scripts\MainMenuCanvasScripts\SettingsPanelController.cs" />
     <Compile Include="Assets\Scripts\MainMenuCanvasScripts\ShopPanelController.cs" />
+    <Compile Include="Assets\Scripts\OnlineConnectionController.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
-    <Compile Include="Assets\Scripts\PointsCounter.cs" />
+    <Compile Include="Assets\Scripts\Point.cs" />
+    <Compile Include="Assets\Scripts\PointsController.cs" />
     <Compile Include="Assets\Scripts\SaveLoadController.cs" />
     <Compile Include="Assets\Scripts\SettingsController.cs" />
     <Compile Include="Assets\Scripts\SkinController.cs" />

@@ -5,7 +5,8 @@ using UnityEngine;
 public class WalletController : MonoBehaviour
 {
     public static WalletController Instance { get; private set; }
-    public static event Action<int> BalanceChanged = delegate { };
+    public static event Action<int> CoinsBalanceChanged = delegate { };
+    public static event Action<int> GemsBalanceChanged = delegate { };
 
     public int Coins
     {
@@ -13,17 +14,30 @@ public class WalletController : MonoBehaviour
         {
             return _coins;
         }
-        private set
+        set
         {
             _coins = value;
-            BalanceChanged(_coins);
+            CoinsBalanceChanged(_coins);
+        }
+    }
+    public int Gems
+    {
+        get
+        {
+            return _gems;
+        }
+        set
+        {
+            _gems = value;
+            GemsBalanceChanged(_gems);
         }
     }
 
     private int _coins;
+    private int _gems;
     private void Start()
     {
-        Coins = 50;
+        Instance = this;
     }
 
     public bool AddCoins(int ammount)

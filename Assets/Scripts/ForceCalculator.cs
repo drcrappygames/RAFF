@@ -5,21 +5,10 @@ using UnityEngine;
 //Some algorithms on generating that force later (patterns etc)
 public class ForceCalculator : MonoBehaviour
 {
-    [SerializeField] private float _minimalForce;
-    [SerializeField] private float _maximalForce;
+    [SerializeField] private float _force = 20f;
 
-    public float Force { get; private set; }
-    public void RecalculateForce()
+    public float GenerateForce()
     {
-        Force = GenerateRandomForce();
-    }
-
-    private void Start()
-    {
-        RecalculateForce();
-    }
-    private float GenerateRandomForce()
-    {
-        return Random.Range(_minimalForce, _maximalForce);
+        return _force + (PointsController.Instance.Points /2f);
     }
 }
